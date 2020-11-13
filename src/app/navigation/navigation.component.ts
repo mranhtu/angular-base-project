@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Event, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -13,6 +13,22 @@ export class NavigationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        // Show loading indicator
+      }
+      if (event instanceof NavigationEnd) {
+        // Hide loading indicator
+        this.pageRoute = event.urlAfterRedirects;
+      }
+      if (event instanceof NavigationError) {
+        console.log(event.error);
+      }
+    });
+  }
+
+  isActive(link: string) {
+    return this.pageRoute.includes(link);
   }
 
 }

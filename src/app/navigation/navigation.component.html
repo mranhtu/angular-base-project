@@ -71,29 +71,27 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <a [routerLink]="['/dashboard']" class="nav-link" [ngClass]="{'active': router.url.includes('dashboard')}">
+          <a [routerLink]="['/dashboard']" class="nav-link" [ngClass]="{'active': isActive('dashboard')}">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Dashboard
-              <span class="badge badge-info right">2</span>
+              <span class="right badge badge-danger">New</span>
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="{{pageRoute}}/table" class="nav-link" [ngClass]="{'active': router.url.includes('table')}">
-            <i class="nav-icon fas fa-th"></i>
+          <a routerLink="/table" class="nav-link" [ngClass]="{'active': isActive('table')}">
+            <i class="nav-icon fas fa-table"></i>
             <p>
               Table
-              <span class="right badge badge-danger">New</span>
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="../widgets.html" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
+          <a routerLink="/form" class="nav-link" [ngClass]="{'active': isActive('form')}">
+            <i class="nav-icon fas fa-table"></i>
             <p>
-              Widgets
-              <span class="right badge badge-danger">New</span>
+              Form Demo
             </p>
           </a>
         </li>

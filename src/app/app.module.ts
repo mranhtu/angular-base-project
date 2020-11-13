@@ -17,7 +17,11 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { PaginatorModule } from 'primeng/paginator';
 import { CalendarModule } from 'primeng/calendar';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormDemoComponent } from './feature/form-demo/form-demo.component';
+import {SharedModule} from './shared/shared.module';
+import {LoadingModule} from './shared/loading/loading.module';
 
 export function HttpLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(httpClient, 'assets/i18n/');
@@ -28,9 +32,11 @@ export function HttpLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
     AppComponent,
     DashboardComponent,
     NavigationComponent,
-    DataTableComponent
+    DataTableComponent,
+    FormDemoComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -38,6 +44,7 @@ export function HttpLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
     TableModule,
     ButtonModule,
     FormsModule,
+    SharedModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -45,7 +52,6 @@ export function HttpLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
         deps: [HttpClient]
       }
     }),
-    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
